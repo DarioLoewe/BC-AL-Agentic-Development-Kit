@@ -14,6 +14,7 @@ Nicht nur Textsuche verwenden, wenn AL Symbolsuche/LSP verfügbar ist.
 ### Schritt 0 — Symbole herunterladen (PFLICHT)
 
 Bevor irgendeine Analyse beginnt:
+
 1. `al_downloadsymbols` ausführen, damit die Base Application und System Application im LSP bekannt sind.
 2. Prüfen, ob `.alpackages/` vorhanden und nicht leer ist.
 3. Ohne heruntergeladene Symbole ist keine vollständige Analyse möglich — Schritt nicht überspringen.
@@ -21,6 +22,7 @@ Bevor irgendeine Analyse beginnt:
 ### Schritt 1 — Standard-BC-Objekte prüfen (vor eigener Implementierung)
 
 Vor der Planung neuer Tabellen, Pages oder Codeunits:
+
 - Prüfen ob ein Standard-BC-Äquivalent existiert (z. B. `Employee`, `Resource`, `Contact`, `Bank Account`).
 - `semantic_search` und `grep_search` nutzen, um im Repository nach vorhandenen Verweisen auf Standard-Objekte zu suchen.
 - LSP-Lookup (`vscode_listCodeUsages`) für bekannte Standard-Tabellen-Kandidaten nutzen.

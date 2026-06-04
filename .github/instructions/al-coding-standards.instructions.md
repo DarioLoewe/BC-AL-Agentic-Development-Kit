@@ -21,6 +21,7 @@ Diese Instructions gelten für alle AL-Dateien in diesem Repository.
 ## Standard-BC-Objekte zuerst prüfen
 
 **Vor jeder neuen Tabelle gilt:**
+
 1. AL Symbole herunterladen (`al_downloadsymbols`), damit Base Application bekannt ist.
 2. Prüfen ob ein Standard-BC-Äquivalent existiert (Employee, Contact, Resource, …).
 3. Wenn Standard-Äquivalent vorhanden → `tableextension` erstellen, keine neue Tabelle.
