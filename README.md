@@ -60,7 +60,7 @@ Das Setup besteht aus fünf Ebenen:
 
 Kurz gesagt:
 
-> **Policies setzen Grenzen. Instructions geben Standards. Skills sind Fähigkeiten. Agents sind Rollen. Workflows sind Kontrolle.**
+> **Policies setzen Grenzen. Instructions geben Standards. Skills sind Fähigkeiten. Agents sind Rollen.**
 
 ---
 
@@ -588,12 +588,6 @@ Prompts sind Schnellstarter für häufige Aufgaben.
 
 ---
 
-## `analyze-work-item.prompt.md`
-
-Analysiert ein Azure-DevOps-Work-Item und erzeugt eine strukturierte Zusammenfassung.
-
----
-
 ## `plan-al-change.prompt.md`
 
 Erstellt einen technischen Umsetzungsplan für eine AL-Änderung.
@@ -603,12 +597,6 @@ Erstellt einen technischen Umsetzungsplan für eine AL-Änderung.
 ## `review-al-pr.prompt.md`
 
 Führt ein strukturiertes Review einer AL-Codeänderung durch.
-
----
-
-## `explain-build-error.prompt.md`
-
-Erklärt Build- oder Compilerfehler verständlich und schlägt nächste Schritte vor.
 
 ---
 

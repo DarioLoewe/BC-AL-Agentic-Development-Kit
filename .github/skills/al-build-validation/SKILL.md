@@ -20,7 +20,7 @@ Nutze diesen Skill nach jeder relevanten AL-Codeänderung. Bei Fehlern nicht rat
 
 - al_downloadsymbols
 - al_build
-- al_compile
+<!-- - al_compile -->
 - al_getdiagnostics
 
 ## Output

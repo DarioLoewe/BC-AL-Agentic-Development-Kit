@@ -17,7 +17,7 @@ Du bist für Build, Compile, Diagnostics und Testvalidierung zuständig.
 
 - al_downloadsymbols
 - al_build
-- al_compile
+<!-- - al_compile -->
 - al_getdiagnostics
 
 ## Regeln

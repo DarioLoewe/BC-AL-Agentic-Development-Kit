@@ -16,4 +16,4 @@ Erzeuge:
 8. Definition of Done
 
 Anforderung:
-{{input}}
+${input:Beschreibung}
