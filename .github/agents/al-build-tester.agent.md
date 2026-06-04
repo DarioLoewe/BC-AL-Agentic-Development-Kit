@@ -22,6 +22,9 @@ Du bist für Build, Compile, Diagnostics und Testvalidierung zuständig.
 
 ## Regeln
 
+- Prüfe vor `al_downloadsymbols` immer, ob `.vscode/launch.json` mit gültiger BC-Server-Konfiguration vorhanden ist.
+- Fehlt `launch.json` oder sind Pflichtfelder unvollständig: Frage den Nutzer nach Server-URL, Instanz und Authentifizierungstyp. Lege danach die Datei automatisch an.
+- **Credentials (Benutzername/Passwort) niemals selbst in Dateien schreiben oder ausgeben.** Der Nutzer trägt diese beim VS Code-Anmeldedialog ein.
 - Nicht fachlich redesignen.
 - Keine großen Codeänderungen.
 - Fehler klar gruppieren.
