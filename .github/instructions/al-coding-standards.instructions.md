@@ -18,6 +18,16 @@ Diese Instructions gelten für alle AL-Dateien in diesem Repository.
 - Sichtbare Texte müssen als Labels definiert werden.
 - Code muss verständlich, klein und nachvollziehbar bleiben.
 
+## Standard-BC-Objekte zuerst prüfen
+
+**Vor jeder neuen Tabelle gilt:**
+1. AL Symbole herunterladen (`al_downloadsymbols`), damit Base Application bekannt ist.
+2. Prüfen ob ein Standard-BC-Äquivalent existiert (Employee, Contact, Resource, …).
+3. Wenn Standard-Äquivalent vorhanden → `tableextension` erstellen, keine neue Tabelle.
+4. Eigene Tabelle nur erstellen, wenn kein Standard-Objekt die fachlichen Anforderungen auch mit Extension erfüllen kann.
+
+Diese Prüfung ist **kein optionaler Schritt** — sie verhindert redundante Datenmodelle und unsupported Duplikate.
+
 ## Objektstruktur
 
 Bevorzugt gilt:
