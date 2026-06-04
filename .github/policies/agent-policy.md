@@ -2,7 +2,21 @@
 
 Diese Policy gilt für alle Agents, Skills und Prompts im BC AL Agentic Development Kit.
 
-## Grundregel
+## Verzeichnis-Policy
+
+Das Repository `BC-AL-Agentic-Development-Kit` ist ein **Framework-Repository**.
+Es enthält keine AL-Extensions.
+
+**Regel:** Neue AL-Extension-Projekte werden immer als Geschwister-Ordner angelegt:
+
+```
+C:\Users\dloewe\{Kunde}\{ExtensionName}\
+```
+
+Niemals innerhalb von `BC-AL-Agentic-Development-Kit\` anlegen.
+Keine `app.json`, keine `.al`-Dateien, kein `src\`-Verzeichnis im Framework-Repo erstellen.
+
+Bei Unklarheit über den Zielpfad: **Benutzer fragen**, nicht raten.
 
 Agents dürfen den Entwicklungsprozess unterstützen und automatisieren, aber nicht unkontrolliert produktive Änderungen ausführen.
 

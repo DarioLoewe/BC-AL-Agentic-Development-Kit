@@ -2,7 +2,30 @@
 
 ## Kontext
 
-Dieses Repository enthält Microsoft Dynamics 365 Business Central AL-Extensions.
+Dieses Repository ist das **BC AL Agentic Development Kit** — ein Framework aus Skills, Agents, Instructions und Policies für die automatisierte AL-Entwicklung.
+
+Es enthält selbst **keine AL-Extensions**.
+AL-Extension-Projekte für Kunden werden außerhalb dieses Repositories angelegt.
+
+## Verzeichnisstruktur
+
+Neue AL-Extensions werden als Geschwister-Ordner neben dem Kit angelegt:
+
+```
+C:\Users\dloewe\
+├── BC-AL-Agentic-Development-Kit\   ← dieses Framework-Repo (kein AL-Code)
+├── {Kunde}\                          ← Kunden-Ordner
+│   └── {ExtensionName}\              ← AL-Extension-Projekt (eigenes Git-Repo)
+└── ...
+```
+
+Beispiel:
+```
+C:\Users\dloewe\KundeXY\FahrzeugVerwaltung\
+```
+
+**Agents müssen neue AL-Extension-Projekte immer außerhalb von `BC-AL-Agentic-Development-Kit\` anlegen.**
+Kein AL-Code, keine app.json, keine `.al`-Dateien direkt im Kit-Repository.
 
 ## Grundregeln
 
