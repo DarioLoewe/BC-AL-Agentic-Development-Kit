@@ -18,6 +18,7 @@ Bevor irgendeine Analyse beginnt:
 1. `al_downloadsymbols` ausführen, damit die Base Application und System Application im LSP bekannt sind.
 2. Prüfen, ob `.alpackages/` vorhanden und nicht leer ist.
 3. Ohne heruntergeladene Symbole ist keine vollständige Analyse möglich — Schritt nicht überspringen.
+4. Bei fehlenden Symbolen: nach launch.json fragen ob die durch den User bereitgestellt werden können, ansonsten mit eingeschränkter Analyse fortfahren und Annahmen dokumentieren.
 
 ### Schritt 1 — Standard-BC-Objekte prüfen (vor eigener Implementierung)
 
