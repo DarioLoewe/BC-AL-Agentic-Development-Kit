@@ -1,3 +1,18 @@
 # GSD planning docs (local only)
 .planning/*
 !.planning/codebase/
+
+# VS Code / Electron debug output
+debug.log
+*.log
+
+# AL-Entwicklungsartefakte (gehören in AL-Projekt-Repos außerhalb des Framework-Repos)
+.alpackages/
+.snapshots/
+.altestrunner/
+
+# AL kompilierte Binaries
+*.app
+
+# Node.js (GSD / MCP-Abhängigkeiten)
+node_modules/
