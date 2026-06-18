@@ -14,5 +14,5 @@ debug.log
 # AL kompilierte Binaries
 *.app
 
-# Node.js (GSD / MCP-Abhängigkeiten)
-node_modules/
+# AL Workflow Session-State (per-Entwickler, nicht git-getrackt)
+.planning/al-workflow/
