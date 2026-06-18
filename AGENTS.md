@@ -36,21 +36,17 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 
 | Agent-Datei | Rolle | Status |
 |-------------|-------|--------|
-| `.github/agents/al/al-auto-dev.agent.md` | Orchestrator — delegiert alle Schritte an Sub-Agents | Aktiv (Legacy-Fallback) |
-| `.github/agents/al/main-agent.agent.md` | Einziger Gesprächspartner, Orchestrator mit Checkpoints | Aktiv (Phase 1+2) |
-| `.github/agents/al/al-devops-reader.agent.md` | ADO/GitHub read-only Ticket-Reader | Aktiv (Phase 1) |
-| `.github/agents/al/al-planner.agent.md` | Anforderung analysieren → technischen Plan erstellen | ⚠️ DEPRECATED (ersetzt durch al-architect in Phase 2) |
-| `.github/agents/al/al-codebase-analyst.agent.md` | AL-Objekte, Events, Abhängigkeiten im Repo finden | Aktiv |
-| `.github/agents/al/al-implementer.agent.md` | AL-Code schreiben | ⚠️ DEPRECATED (ersetzt durch al-coder in Phase 2) |
-| `.github/agents/al/al-build-tester.agent.md` | Build/Compile, Diagnostics, Fix-Schleifen (max. 3) | ⚠️ DEPRECATED (integriert in al-coder in Phase 2) |
-| `.github/agents/al/al-reviewer.agent.md` | Code-Review nach BC-Konventionen | Aktiv |
-| `.github/agents/al/al-documenter.agent.md` | PR-Beschreibung, Release Notes, Testhinweise | Aktiv |
-| `.github/agents/al/al-architect.agent.md` | JSON Plan Contract, BC-Symbole, T-Shirt-Sizing, Objekt-Planung | Aktiv (Phase 2) |
-| `.github/agents/al/al-coder.agent.md` | Code + Build + Objekt-IDs + Übersetzungen (löst al-implementer + al-build-tester ab) | Aktiv (Phase 2) |
-| `.github/agents/al/al-validator.agent.md` | 5-Layer AC-Prüfung, max. 2 Korrekturschleifen, BLOCKER-Report | Aktiv (Phase 2) |
-| `.github/agents/al/al-tester.agent.md` | AL-Tests (GIVEN/WHEN/THEN), nur auf explizite Anforderung | Aktiv (Phase 2) |
-| `.github/agents/al/al-websearch.agent.md` | MS Learn / Web-Suche — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv (Phase 4) |
-| `.github/agents/al/al-code-research.agent.md` | AL-Symbole, Code-Usages — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv (Phase 4) |
+| `.github/agents/main-agent.agent.md` | Einziger Gesprächspartner, Orchestrator mit Checkpoints | Aktiv |
+| `.github/agents/al-devops-reader.agent.md` | ADO/GitHub read-only Ticket-Reader | Aktiv |
+| `.github/agents/al-architect.agent.md` | JSON Plan Contract, BC-Symbole, T-Shirt-Sizing, Objekt-Planung | Aktiv |
+| `.github/agents/al-codebase-analyst.agent.md` | AL-Objekte, Events, Abhängigkeiten im Repo finden | Aktiv |
+| `.github/agents/al-coder.agent.md` | Code + Build + Objekt-IDs + Übersetzungen | Aktiv |
+| `.github/agents/al-validator.agent.md` | 5-Layer AC-Prüfung, max. 2 Korrekturschleifen, BLOCKER-Report | Aktiv |
+| `.github/agents/al-reviewer.agent.md` | Code-Review nach BC-Konventionen | Aktiv |
+| `.github/agents/al-tester.agent.md` | AL-Tests (GIVEN/WHEN/THEN), nur auf explizite Anforderung | Aktiv |
+| `.github/agents/al-documenter.agent.md` | PR-Beschreibung, Release Notes, Testhinweise | Aktiv |
+| `.github/agents/al-websearch.agent.md` | MS Learn / Web-Suche — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv |
+| `.github/agents/al-code-research.agent.md` | AL-Symbole, Code-Usages — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv |
 
 ### Geplante Agents (noch nicht implementiert)
 
