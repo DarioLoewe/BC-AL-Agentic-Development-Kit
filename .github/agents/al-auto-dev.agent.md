@@ -1,5 +1,6 @@
 ---
 name: al-auto-dev
+model: claude-opus-4
 description: Führt den kompletten automatisierten AL-Entwicklungsworkflow von Anforderung bis Draft PR aus.
 tools:
   [

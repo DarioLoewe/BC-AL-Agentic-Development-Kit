@@ -1,5 +1,6 @@
 ---
 name: al-reviewer
+model: claude-sonnet-4-5
 description: Prüft AL-Codeänderungen auf Qualität, Wartbarkeit, Upgradefähigkeit und Business-Central-Konventionen.
 tools: ["read", "search"]
 ---

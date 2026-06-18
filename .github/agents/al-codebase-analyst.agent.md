@@ -1,5 +1,6 @@
 ---
 name: al-codebase-analyst
+model: claude-sonnet-4-5
 description: Analysiert bestehende Business-Central-AL-Repositories und findet relevante Objekte, Events und Abhängigkeiten.
 tools: ["read", "search"]
 ---

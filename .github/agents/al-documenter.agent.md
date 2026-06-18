@@ -1,5 +1,6 @@
 ---
 name: al-documenter
+model: claude-sonnet-4-5
 description: Erstellt PR-Beschreibungen, technische Dokumentation und Schulungsnotizen für AL-Änderungen.
 tools: ["read", "search", "edit"]
 ---

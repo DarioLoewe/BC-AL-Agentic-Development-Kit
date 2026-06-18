@@ -1,5 +1,6 @@
 ---
 name: al-planner
+model: claude-opus-4
 description: Plant AL-Änderungen aus fachlichen Anforderungen und erstellt technische Umsetzungspläne.
 tools: ["read", "search"]
 ---

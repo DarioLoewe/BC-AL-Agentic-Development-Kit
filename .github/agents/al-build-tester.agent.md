@@ -1,5 +1,6 @@
 ---
 name: al-build-tester
+model: claude-sonnet-4-5
 description: Führt AL Build, Compile, Symbolprüfung, Diagnostics und Testauswertung durch.
 tools: ["read", "search", "terminal"]
 ---

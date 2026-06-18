@@ -1,5 +1,6 @@
 ---
 name: al-implementer
+model: claude-sonnet-4-5
 description: Implementiert kleine, klar geplante AL-Änderungen auf Basis eines bestätigten Plans.
 tools: ["read", "search", "edit"]
 ---
