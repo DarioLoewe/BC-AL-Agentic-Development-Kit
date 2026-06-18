@@ -43,7 +43,13 @@ Wenn du vom `al-auto-dev` Agent aufgerufen wirst:
 - führe Build/Compile aus
 - werte Diagnostics aus
 - gib konkrete Fixes zurück
-- bei Fehlern maximal 3 Korrekturschleifen zulassen
+- bei Fehlern maximal 3 Korrekturschleifen durchführen
+- nach 3 fehlgeschlagenen Schleifen ohne erfolgreichen Build:
+  1. Stoppe sofort — kein weiterer Code wird geändert
+  2. Erstelle `.planning/al-workflow/BLOCKER-REPORT.md` (Fehlermeldungen der letzten Schleife,
+     Korrekturprotokoll 1–3, empfohlene Eingriffspunkte)
+  3. Übergib den Report-Pfad an den Orchestrator oder Entwickler
+  4. Warte auf explizite Freigabe — vollständige Eskalationsregel: `agent-policy.md § Fix-Loop-Eskalation`
 
 ## Output
 
