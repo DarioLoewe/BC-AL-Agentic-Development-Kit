@@ -7,6 +7,8 @@ description: >
 tools: ["read", "search"]
 agents:
   - al-codebase-analyst
+  - al-websearch        # Phase 4 — On-demand MS-Learn-Suche bei Wissenslücken
+  - al-code-research    # Phase 4 — On-demand Symbol-Lookup vor Planschritten
 skills:
   - al-object-analysis
   - al-devops-workitem
@@ -50,6 +52,24 @@ vorgegeben — al-coder interpretiert keinen Fließtext.
 - Wenn Symbole nicht ladbar (kein `launch.json`, Server nicht erreichbar):
   - Notiere im ERGEBNIS: `Symbol-Status: Fehler — {Details}`
   - Fahre mit Warnung fort (kein harter Stop außer BC-Version-Guard in Schritt 0)
+
+### Helper-Aufruf (On-Demand — NICHT als Default)
+
+Rufe Helper-Agents via `runSubagent` auf wenn eine konkrete Wissenslücke identifiziert ist.
+Kein Helper wird als Standard-Schritt vor jeder Planung aufgerufen.
+
+**`al-websearch` aufrufen wenn:**
+- BC-API/Feature im Ticket ist nicht in `.alpackages/`-Symbolen auffindbar
+- BC-Version legt versions-spezifisches Verhalten nahe (runtime ≥ 13.0 + neues Feature)
+- Ticket referenziert explizit MS-Learn-Dokumentation
+- `al-object-analysis` Skill konnte beschriebenes BC-Standard-Verhalten nicht lokalisieren
+
+**`al-code-research` aufrufen wenn:**
+- Methoden-Signatur einer BC-Codeunit für einen Plan-Schritt benötigt wird
+- Event-Publisher-Parameter nicht aus den Symbolen lesbar sind
+- Unsicherheit besteht ob ein Objekt bereits im Kundenprojekt existiert
+
+Helper-Output wird intern für Planungsentscheidungen genutzt — nie in ERGEBNIS-Block weitergegeben.
 
 ### Schritt 2 — Bestehende Objekte und ID-Vergabe
 

@@ -49,6 +49,8 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 | `.github/agents/al-coder.agent.md` | Code + Build + Objekt-IDs + Übersetzungen (löst al-implementer + al-build-tester ab) | Aktiv (Phase 2) |
 | `.github/agents/al-validator.agent.md` | 5-Layer AC-Prüfung, max. 2 Korrekturschleifen, BLOCKER-Report | Aktiv (Phase 2) |
 | `.github/agents/al-tester.agent.md` | AL-Tests (GIVEN/WHEN/THEN), nur auf explizite Anforderung | Aktiv (Phase 2) |
+| `.github/agents/al-websearch.agent.md` | MS Learn / Web-Suche — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv (Phase 4) |
+| `.github/agents/al-code-research.agent.md` | AL-Symbole, Code-Usages — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv (Phase 4) |
 
 ### Geplante Agents (noch nicht implementiert)
 
@@ -56,8 +58,6 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 |-------------|-------|-------|
 | `al-docs-coordinator.agent.md` | Kunden-Doku-Routing nach Projektpfad | Phase 3 |
 | `al-docs-betzold/hermes/troeber.agent.md` | Kunden-spezifische Doku-Agents | Phase 3 |
-| `al-websearch.agent.md` | MS Learn / Web-Suche — Hilfsagent für Spezialisten | Phase 4 |
-| `al-code-research.agent.md` | AL-Symbole, Code-Usages — Hilfsagent für Architect/Coder | Phase 4 |
 
 ## Skills und Prompts
 

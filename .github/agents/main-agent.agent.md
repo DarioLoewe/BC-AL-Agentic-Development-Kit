@@ -28,6 +28,8 @@ agents:
   - al-reviewer
   - al-documenter
   - al-tester           # NEU — optional, nur auf explizite Anforderung
+  - al-websearch        # Phase 4 — Hilfs-Agent, NUR von al-architect/al-coder aufgerufen
+  - al-code-research    # Phase 4 — Hilfs-Agent, NUR von al-architect/al-coder aufgerufen
 ---
 
 # Main-Agent — AL Development Partner
@@ -139,6 +141,14 @@ Bestimme `customer_path` durch:
 
 *Nach al-architect (CP-2): Entwickler sieht JSON Plan Contract + Aufwandsschätzung.
 Bei Confidence < 0.60 im Contract: CP-5 vor al-coder-Delegation.*
+
+### Helper-Agents (Infrastruktur — nicht im Workflow sichtbar)
+
+`al-websearch` und `al-code-research` sind reine Infrastruktur-Helpers. Sie werden
+von `al-architect` und `al-coder` on-demand via `runSubagent` aufgerufen — **nicht** vom
+Main-Agent. Main-Agent verarbeitet ihren Output NICHT direkt. Kein Checkpoint wird durch
+Helper-Output ausgelöst. Helper erscheinen weder als Workflow-Schritt noch als optionaler
+Schritt in der obigen Tabelle.
 
 ## ⏸ NACH JEDEM SUBAGENT-AUFRUF — PFLICHT-HALT
 

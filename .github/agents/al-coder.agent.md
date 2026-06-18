@@ -6,6 +6,9 @@ description: >
   und al-build-tester. Schreibt Code, verwaltet Objekt-IDs, führt Build durch,
   erstellt Übersetzungseinträge. Ersetzt al-implementer und al-build-tester ab Phase 2.
 tools: ["read", "search", "edit", "terminal"]
+agents:
+  - al-code-research    # Phase 4 — Signatur-Verifikation vor Code-Schreiben
+  - al-websearch        # Phase 4 — API-Doku wenn Diagnostics unbekannte API meldet
 skills:
   - al-object-analysis
   - al-build-validation
@@ -47,6 +50,21 @@ AL-Code um. Kein eigenes fachliches Design — folge dem Contract präzise.
   Lege `launch.json` an (ohne Credentials — niemals Passwörter speichern)
 - Führe `al_downloadsymbols` aus
 - Bei Fehler: STOPP — kein Code ohne Symbole
+
+### Helper-Aufruf (On-Demand — NICHT als Default)
+
+Rufe Helper-Agents auf bei konkreter Wissenslücke — nie als Standard-Schritt.
+
+**`al-code-research` aufrufen VOR dem Code-Schreiben wenn:**
+- Eine Prozedur eine BC-Codeunit aufruft und die Signatur nicht aus Schritt 1 bekannt ist
+- `al_getdiagnostics` meldet `procedure ... not found` oder Typ-Fehler
+- `al_getdiagnostics` meldet falsche Parameter-Anzahl
+
+**`al-websearch` aufrufen wenn:**
+- `al_getdiagnostics` meldet BC-API-Fehler der nicht aus Symbolen erklärbar ist
+- Ein Contract-Objekt hat kein Symbol-Äquivalent in `.alpackages/`
+
+Helper-Output wird intern für Code-Korrektur genutzt — nie in ERGEBNIS-Block weitergegeben.
 
 ### Schritt 2 — Objekt-ID-Verifikation
 
