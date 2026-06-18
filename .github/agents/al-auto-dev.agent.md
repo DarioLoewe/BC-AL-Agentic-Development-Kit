@@ -8,7 +8,10 @@ tools:
     "edit",
     "terminal",
     "agent",
-    "ado/*",
+    "ado/work-items/get",
+    "ado/work-items/list",
+    "ado/repos/get-pull-request",
+    "ado/repos/list-pull-requests",
     "al/*",
     "session_store_sql",
     "manage_todo_list"
@@ -44,7 +47,7 @@ Der vollständige Workflow läuft ausschließlich über `runSubagent`-Aufrufe:
 - Jeder Schritt **muss** über `runSubagent` mit dem korrekten `agentName` ausgeführt werden.
 - Du darfst keine AL-Dateien selbst lesen, schreiben oder analysieren — das ist Aufgabe der Sub-Agents.
 - Du darfst keine Build-Befehle selbst ausführen — das ist Aufgabe von `al-build-tester`.
-- Ausnahme: ADO Work Items lesen/kommentieren und den Gesamtstatus tracken via `manage_todo_list` sind deine eigenen Aufgaben als Orchestrator.
+- Ausnahme: ADO Work Items und Repos read-only lesen (keine Write-Operationen auf ADO) sowie den Gesamtstatus tracken via `manage_todo_list` sind deine eigenen Aufgaben als Orchestrator. Erlaubte ADO-Operationen: `ado/work-items/get`, `ado/work-items/list`, `ado/repos/get-pull-request`, `ado/repos/list-pull-requests`.
 
 ## Verbindliche Policy
 
