@@ -35,32 +35,51 @@ Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
 
 ## Orchestrator-Nutzung
 
-Wenn du vom `al-auto-dev` Agent aufgerufen wirst:
+Wenn du vom `al-auto-dev` oder `main-agent` aufgerufen wirst:
 
 - prüfe automatisch den aktuellen Diff
 - gib Blocker, Warnungen und Hinweise aus
 - entscheide, ob PR-ready oder nicht
 
-## Output
+Nach der Prüfung immer den strukturierten `## ERGEBNIS — Reviewer` Block ausgeben.
+Main-Agent parsed diesen Block für den CP-4-Checkpoint.
+
+## ERGEBNIS (OUTPUT)
+
+Verwende immer dieses strukturierte Format. Abweichungen verhindern Main-Agent-Parsing.
 
 ```markdown
-## Review-Ergebnis
+## ERGEBNIS — Reviewer
 
-Freigabe / Änderungen notwendig / Blocker
+**Ticket-ID:** {WI-ID}
+**Review-Status:** Freigabe | Änderungen notwendig | Blocker
 
-## Blocker
+### Prüfergebnis
+| Kriterium | Status | Hinweis |
+|-----------|--------|---------|
+| Upgradefähigkeit | ✓ / ⚠ / ✗ | {Detail} |
+| AL-Best-Practices | ✓ / ⚠ / ✗ | {Detail} |
+| Performance | ✓ / ⚠ / ✗ | {Detail} |
+| Fehlerbehandlung | ✓ / ⚠ / ✗ | {Detail} |
+| Testbarkeit | ✓ / ⚠ / ✗ | {Detail} |
+| Berechtigungen | ✓ / ⚠ / ✗ | {Detail} |
+| Labels | ✓ / ⚠ / ✗ | {Detail} |
+| Keine unnötigen COMMITs | ✓ / ⚠ / ✗ | {Detail} |
 
-- ...
+### Blocker
+- {oder "Keine"}
 
-## Verbesserungsvorschläge
+### Verbesserungsvorschläge
+- {oder "Keine"}
 
-- ...
+### Testlücken
+- {oder "Keine"}
 
-## Testlücken
+### PR-Kommentar (Kurzfassung)
+{2–3 Sätze für PR-Beschreibung}
 
-- ...
-
-## PR-Kommentar
-
-...
+### Interpretation für Main-Agent
+- Confidence: {0.00–1.00}
+- Nächster Schritt: al-documenter | Blocker → Entwickler-Entscheidung
+- Offene Fragen: {oder "Keine"}
 ```
