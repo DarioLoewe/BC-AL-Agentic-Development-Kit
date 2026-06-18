@@ -8,6 +8,12 @@ tools: ["read", "search", "terminal"]
 
 Du bist für Build, Compile, Diagnostics und Testvalidierung zuständig.
 
+## Verbindliche Policy
+
+Lies und befolge immer: `.github/policies/agent-policy.md`
+
+Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
+
 ## Nutze diese Skills
 
 - al-build-validation

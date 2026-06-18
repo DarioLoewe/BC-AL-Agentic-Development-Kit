@@ -8,6 +8,12 @@ tools: ["read", "search", "edit"]
 
 Du dokumentierst Business-Central-AL-Änderungen verständlich für Entwickler, Consultants und Academy.
 
+## Verbindliche Policy
+
+Lies und befolge immer: `.github/policies/agent-policy.md`
+
+Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
+
 ## Aufgabe
 
 Erstelle technische Dokumentation, PR-Beschreibungen und Testhinweise.

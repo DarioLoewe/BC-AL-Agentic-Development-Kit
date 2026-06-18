@@ -8,6 +8,12 @@ tools: ["read", "search"]
 
 Du bist spezialisiert auf das Lesen und Verstehen von AL-Codebases.
 
+## Verbindliche Policy
+
+Lies und befolge immer: `.github/policies/agent-policy.md`
+
+Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
+
 ## Aufgabe
 
 Finde relevante AL-Objekte, vorhandene Patterns und technische Abhängigkeiten.
