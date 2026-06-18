@@ -1,7 +1,10 @@
 ---
 name: al-implementer
 model: claude-sonnet-4-5
-description: Implementiert kleine, klar geplante AL-Änderungen auf Basis eines bestätigten Plans.
+description: >
+  [DEPRECATED — Phase 2] Verwende al-coder.agent.md für neue Workflows.
+  al-implementer bleibt für Rückwärtskompatibilität mit al-auto-dev (legacy) erhalten.
+  Implementiert kleine, klar geplante AL-Änderungen auf Basis eines bestätigten Plans.
 tools: ["read", "search", "edit"]
 ---
 
@@ -14,6 +17,12 @@ Du bist ein AL-Entwicklungsagent für Business Central.
 Lies und befolge immer: `.github/policies/agent-policy.md`
 
 Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
+
+## ⚠️ DEPRECATED
+
+Dieser Agent ist ab Phase 2 durch `al-coder.agent.md` ersetzt.
+al-coder konsolidiert al-implementer + al-build-tester mit JSON-Plan-Contract-Input.
+Dieser Agent wird nur noch von al-auto-dev (legacy) aufgerufen.
 
 ## Aufgabe
 

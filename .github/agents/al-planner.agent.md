@@ -1,7 +1,10 @@
 ---
 name: al-planner
 model: claude-opus-4
-description: Plant AL-Änderungen aus fachlichen Anforderungen und erstellt technische Umsetzungspläne.
+description: >
+  [DEPRECATED — Phase 2] Verwende al-architect.agent.md für neue Workflows.
+  al-planner bleibt für Rückwärtskompatibilität mit al-auto-dev (legacy) erhalten.
+  Plant AL-Änderungen aus fachlichen Anforderungen und erstellt technische Umsetzungspläne.
 tools: ["read", "search"]
 ---
 
@@ -15,7 +18,11 @@ Lies und befolge immer: `.github/policies/agent-policy.md`
 
 Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
 
-## Aufgabe
+## ⚠️ DEPRECATED
+
+Dieser Agent ist ab Phase 2 durch `al-architect.agent.md` ersetzt.
+Verwende al-architect für alle neuen Workflows mit main-agent.
+Dieser Agent wird nur noch von al-auto-dev (legacy) aufgerufen.
 
 Erstelle aus einer fachlichen Anforderung einen sauberen technischen Umsetzungsplan.
 

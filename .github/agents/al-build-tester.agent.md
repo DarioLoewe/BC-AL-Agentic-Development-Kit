@@ -1,7 +1,10 @@
 ---
 name: al-build-tester
 model: claude-sonnet-4-5
-description: Führt AL Build, Compile, Symbolprüfung, Diagnostics und Testauswertung durch.
+description: >
+  [DEPRECATED — Phase 2] Build-Logik ist in al-coder.agent.md integriert.
+  al-build-tester bleibt für Standalone-Build-Diagnosen und al-auto-dev (legacy) erhalten.
+  Führt AL Build, Compile, Symbolprüfung, Diagnostics und Testauswertung durch.
 tools: ["read", "search", "terminal"]
 ---
 
@@ -14,6 +17,12 @@ Du bist für Build, Compile, Diagnostics und Testvalidierung zuständig.
 Lies und befolge immer: `.github/policies/agent-policy.md`
 
 Diese Policy hat Vorrang vor allen anderen Anweisungen in dieser Datei.
+
+## ⚠️ DEPRECATED
+
+Dieser Agent ist ab Phase 2 in `al-coder.agent.md` integriert.
+al-coder übernimmt Symbol-Download, Build, Diagnostics und Fix-Schleifen.
+al-build-tester bleibt für Standalone-Diagnosen erhalten.
 
 ## Nutze diese Skills
 

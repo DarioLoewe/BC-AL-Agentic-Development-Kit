@@ -36,24 +36,24 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 
 | Agent-Datei | Rolle | Status |
 |-------------|-------|--------|
-| `.github/agents/al-auto-dev.agent.md` | Orchestrator — delegiert alle Schritte an Sub-Agents | Aktiv (wird in Phase 1 durch Main-Agent abgelöst) |
-| `.github/agents/al-planner.agent.md` | Anforderung analysieren → technischen Plan erstellen | Aktiv |
+| `.github/agents/al-auto-dev.agent.md` | Orchestrator — delegiert alle Schritte an Sub-Agents | Aktiv (Legacy-Fallback) |
+| `.github/agents/main-agent.agent.md` | Einziger Gesprächspartner, Orchestrator mit Checkpoints | Aktiv (Phase 1+2) |
+| `.github/agents/al-devops-reader.agent.md` | ADO/GitHub read-only Ticket-Reader | Aktiv (Phase 1) |
+| `.github/agents/al-planner.agent.md` | Anforderung analysieren → technischen Plan erstellen | ⚠️ DEPRECATED (ersetzt durch al-architect in Phase 2) |
 | `.github/agents/al-codebase-analyst.agent.md` | AL-Objekte, Events, Abhängigkeiten im Repo finden | Aktiv |
-| `.github/agents/al-implementer.agent.md` | AL-Code schreiben, Build ausführen | Aktiv |
-| `.github/agents/al-build-tester.agent.md` | Build/Compile, Diagnostics, Fix-Schleifen (max. 3) | Aktiv |
+| `.github/agents/al-implementer.agent.md` | AL-Code schreiben | ⚠️ DEPRECATED (ersetzt durch al-coder in Phase 2) |
+| `.github/agents/al-build-tester.agent.md` | Build/Compile, Diagnostics, Fix-Schleifen (max. 3) | ⚠️ DEPRECATED (integriert in al-coder in Phase 2) |
 | `.github/agents/al-reviewer.agent.md` | Code-Review nach BC-Konventionen | Aktiv |
 | `.github/agents/al-documenter.agent.md` | PR-Beschreibung, Release Notes, Testhinweise | Aktiv |
+| `.github/agents/al-architect.agent.md` | JSON Plan Contract, BC-Symbole, T-Shirt-Sizing, Objekt-Planung | Aktiv (Phase 2) |
+| `.github/agents/al-coder.agent.md` | Code + Build + Objekt-IDs + Übersetzungen (löst al-implementer + al-build-tester ab) | Aktiv (Phase 2) |
+| `.github/agents/al-validator.agent.md` | 5-Layer AC-Prüfung, max. 2 Korrekturschleifen, BLOCKER-Report | Aktiv (Phase 2) |
+| `.github/agents/al-tester.agent.md` | AL-Tests (GIVEN/WHEN/THEN), nur auf explizite Anforderung | Aktiv (Phase 2) |
 
 ### Geplante Agents (noch nicht implementiert)
 
 | Agent-Datei | Rolle | Phase |
 |-------------|-------|-------|
-| `main-agent.agent.md` | Einziger Gesprächspartner, Orchestrator mit Checkpoints | Phase 1 |
-| `al-devops-reader.agent.md` | ADO/GitHub read-only Ticket-Reader | Phase 1 |
-| `al-architect.agent.md` | JSON Plan Contract, Objekte, Aufwandsschätzung | Phase 2 |
-| `al-coder.agent.md` | Code + Build + Objekt-IDs + Übersetzungen (löst al-implementer ab) | Phase 2 |
-| `al-validator.agent.md` | 5-Layer AC-Prüfung, Korrekturschleifen | Phase 2 |
-| `al-tester.agent.md` | AL-Tests (GIVEN/WHEN/THEN), nur auf Anforderung | Phase 2 |
 | `al-docs-coordinator.agent.md` | Kunden-Doku-Routing nach Projektpfad | Phase 3 |
 | `al-docs-betzold/hermes/troeber.agent.md` | Kunden-spezifische Doku-Agents | Phase 3 |
 | `al-websearch.agent.md` | MS Learn / Web-Suche — Hilfsagent für Spezialisten | Phase 4 |
