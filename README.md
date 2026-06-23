@@ -33,6 +33,7 @@ Draft Pull Request
 ```
 
 Der Mensch bleibt verantwortlich für:
+
 - fachliche Prüfung
 - Code Review
 - Merge und Release
@@ -111,19 +112,19 @@ C:\Users\dloewe\
 
 ### AL-Entwicklung (aktiv)
 
-| Agent | Rolle | Modell |
-|-------|-------|--------|
-| `main-agent` | Einziger Gesprächspartner, Orchestrator mit HiTL-Checkpoints | claude-opus-4 |
-| `al-devops-reader` | Azure DevOps / GitHub — read-only Ticket-Parser | claude-sonnet-4-5 |
-| `al-architect` | JSON Plan Contract, Objekt-Planung, T-Shirt-Sizing, BC-Symbole | claude-opus-4 |
-| `al-codebase-analyst` | AL-Objekte, Events und Abhängigkeiten im Repo finden | claude-sonnet-4-5 |
-| `al-coder` | Code generieren, Build ausführen, Objekt-IDs pflegen, Übersetzungen anlegen | claude-sonnet-4-5 |
-| `al-validator` | 5-Layer-Akzeptanzkriterien-Prüfung, max. 2 Korrekturrunden, BLOCKER-Report | claude-opus-4 |
-| `al-reviewer` | Code-Review nach BC-Konventionen | claude-sonnet-4-5 |
-| `al-tester` | AL-Tests (GIVEN/WHEN/THEN) — **nur auf explizite Anforderung** | claude-sonnet-4-5 |
-| `al-documenter` | PR-Beschreibung, Release Notes, Testhinweise | claude-sonnet-4-5 |
-| `al-websearch` | MS Learn / Web-Suche — Leaf-Node für al-architect + al-coder | claude-sonnet-4-5 |
-| `al-code-research` | AL-Symbole und Code-Usages — Leaf-Node für al-architect + al-coder | claude-sonnet-4-5 |
+| Agent                 | Rolle                                                                       | Modell            |
+| --------------------- | --------------------------------------------------------------------------- | ----------------- |
+| `main-agent`          | Einziger Gesprächspartner, Orchestrator mit HiTL-Checkpoints                | claude-opus-4     |
+| `al-devops-reader`    | Azure DevOps / GitHub — read-only Ticket-Parser                             | claude-sonnet-4-5 |
+| `al-architect`        | JSON Plan Contract, Objekt-Planung, T-Shirt-Sizing, BC-Symbole              | claude-opus-4     |
+| `al-codebase-analyst` | AL-Objekte, Events und Abhängigkeiten im Repo finden                        | claude-sonnet-4-5 |
+| `al-coder`            | Code generieren, Build ausführen, Objekt-IDs pflegen, Übersetzungen anlegen | claude-sonnet-4-5 |
+| `al-validator`        | 5-Layer-Akzeptanzkriterien-Prüfung, max. 2 Korrekturrunden, BLOCKER-Report  | claude-opus-4     |
+| `al-reviewer`         | Code-Review nach BC-Konventionen                                            | claude-sonnet-4-5 |
+| `al-tester`           | AL-Tests (GIVEN/WHEN/THEN) — **nur auf explizite Anforderung**              | claude-sonnet-4-5 |
+| `al-documenter`       | PR-Beschreibung, Release Notes, Testhinweise                                | claude-sonnet-4-5 |
+| `al-websearch`        | MS Learn / Web-Suche — Leaf-Node für al-architect + al-coder                | claude-sonnet-4-5 |
+| `al-code-research`    | AL-Symbole und Code-Usages — Leaf-Node für al-architect + al-coder          | claude-sonnet-4-5 |
 
 > `al-websearch` und `al-code-research` werden nie direkt aufgerufen — sie sind interne Hilfsagents.
 
@@ -138,13 +139,13 @@ Diese werden über GSD-Befehle aufgerufen, nicht direkt.
 
 Skills sind wiederverwendbare Fähigkeiten, die mehrere Agents nutzen.
 
-| Skill | Zweck |
-|-------|-------|
-| `al-object-analysis` | Tables, Pages, Codeunits, Reports, Enums und Erweiterungspunkte finden |
-| `al-build-validation` | Build/Compile, Symbol-Download, Diagnostics |
-| `al-code-review` | Qualität, Upgradefähigkeit, Testbarkeit, BC-Best-Practices |
-| `al-devops-workitem` | Work-Item analysieren, Akzeptanzkriterien ableiten, Tasks strukturieren |
-| `al-test-design` | Testfälle entwerfen (fachlich und technisch) |
+| Skill                 | Zweck                                                                   |
+| --------------------- | ----------------------------------------------------------------------- |
+| `al-object-analysis`  | Tables, Pages, Codeunits, Reports, Enums und Erweiterungspunkte finden  |
+| `al-build-validation` | Build/Compile, Symbol-Download, Diagnostics                             |
+| `al-code-review`      | Qualität, Upgradefähigkeit, Testbarkeit, BC-Best-Practices              |
+| `al-devops-workitem`  | Work-Item analysieren, Akzeptanzkriterien ableiten, Tasks strukturieren |
+| `al-test-design`      | Testfälle entwerfen (fachlich und technisch)                            |
 
 ---
 
@@ -152,13 +153,13 @@ Skills sind wiederverwendbare Fähigkeiten, die mehrere Agents nutzen.
 
 Instructions enthalten thematische Regeln, die automatisch auf passende Dateitypen angewendet werden.
 
-| Datei | Gilt für | Inhalt |
-|-------|----------|--------|
-| `al-coding-standards.instructions.md` | `**/*.al` | Naming, Patterns, Events, Performance, Labels |
-| `al-testing.instructions.md` | `**/*.al` | GIVEN/WHEN/THEN, Build-Regeln, Testdokumentation |
-| `al-review.instructions.md` | `**/*.al` | Review-Kriterien, Risiken, Buchungslogik, Sicherheit |
-| `azure-devops.instructions.md` | `**/*` | Work Items, Branches, PRs, AI-Tags, Definition of Done |
-| `ergebnis-contract.instructions.md` | `.github/agents/*.agent.md` | ERGEBNIS-Block-Standard für Agent-Ausgaben |
+| Datei                                 | Gilt für                    | Inhalt                                                 |
+| ------------------------------------- | --------------------------- | ------------------------------------------------------ |
+| `al-coding-standards.instructions.md` | `**/*.al`                   | Naming, Patterns, Events, Performance, Labels          |
+| `al-testing.instructions.md`          | `**/*.al`                   | GIVEN/WHEN/THEN, Build-Regeln, Testdokumentation       |
+| `al-review.instructions.md`           | `**/*.al`                   | Review-Kriterien, Risiken, Buchungslogik, Sicherheit   |
+| `azure-devops.instructions.md`        | `**/*`                      | Work Items, Branches, PRs, AI-Tags, Definition of Done |
+| `ergebnis-contract.instructions.md`   | `.github/agents/*.agent.md` | ERGEBNIS-Block-Standard für Agent-Ausgaben             |
 
 ---
 
@@ -191,12 +192,12 @@ Sie hat **Vorrang** vor allen anderen Instructions, Skills und Agent-Beschreibun
 
 ### Confidence-Regel
 
-| Confidence | Aktion |
-|:----------:|--------|
-| 0.80 – 1.00 | implementieren |
+| Confidence  | Aktion                                            |
+| :---------: | ------------------------------------------------- |
+| 0.80 – 1.00 | implementieren                                    |
 | 0.60 – 0.79 | vorsichtig implementieren, Annahmen dokumentieren |
-| 0.40 – 0.59 | nur technische Vorbereitung / Spike |
-| 0.00 – 0.39 | nicht implementieren, Blocker dokumentieren |
+| 0.40 – 0.59 | nur technische Vorbereitung / Spike               |
+| 0.00 – 0.39 | nicht implementieren, Blocker dokumentieren       |
 
 ### Thin-Requirement-Verhalten
 
@@ -212,15 +213,15 @@ Wenn eine Anforderung knapp formuliert ist:
 
 Work Items steuern, was ein Agent tun darf:
 
-| Tag | Bedeutung |
-|-----|-----------|
-| `ai:auto` | vollautomatisch verarbeiten |
-| `ai:plan-only` | nur Analyse und Plan |
-| `ai:implement` | Umsetzung erlaubt |
-| `ai:review-only` | nur Review |
-| `ai:blocked` | Agent konnte nicht sicher fortfahren |
-| `ai:done` | Agentenlauf abgeschlossen |
-| `bc-al` | Business-Central-AL-Bezug |
+| Tag              | Bedeutung                            |
+| ---------------- | ------------------------------------ |
+| `ai:auto`        | vollautomatisch verarbeiten          |
+| `ai:plan-only`   | nur Analyse und Plan                 |
+| `ai:implement`   | Umsetzung erlaubt                    |
+| `ai:review-only` | nur Review                           |
+| `ai:blocked`     | Agent konnte nicht sicher fortfahren |
+| `ai:done`        | Agentenlauf abgeschlossen            |
+| `bc-al`          | Business-Central-AL-Bezug            |
 
 **Branch-Namensschema:**
 
@@ -242,10 +243,10 @@ WI #{id}: kurze Beschreibung
 
 Jeder Agent hat ein zugewiesenes Modell im `model:`-Frontmatter seiner `.agent.md`-Datei.
 
-| Kategorie | Modell | Einsatz |
-|-----------|--------|---------|
-| Orchestrierung, Planung, Analyse | `claude-opus-4` | Tiefes Reasoning, Ambiguität, komplexe Entscheidungen |
-| Ausführung, Parsing, Code | `claude-sonnet-4-5` | Strukturierte Codegenerierung, Diagnostics, Templates |
+| Kategorie                        | Modell              | Einsatz                                               |
+| -------------------------------- | ------------------- | ----------------------------------------------------- |
+| Orchestrierung, Planung, Analyse | `claude-opus-4`     | Tiefes Reasoning, Ambiguität, komplexe Entscheidungen |
+| Ausführung, Parsing, Code        | `claude-sonnet-4-5` | Strukturierte Codegenerierung, Diagnostics, Templates |
 
 Geschätzte Kosteneinsparung gegenüber Opus-4 für alle Tasks: **~60 %**.
 
@@ -271,34 +272,33 @@ Der Main-Agent übernimmt die Orchestrierung und fragt an den Checkpoints nach.
 
 Prompts in `.github/prompts/` sind Schnellstarter für häufige Aufgaben:
 
-| Prompt | Wann nutzen |
-|--------|-------------|
-| `analyze-work-item` | Work Item verstehen, ohne sofort umzusetzen |
-| `plan-al-change` | technischen Plan für eine Anforderung erstellen |
-| `review-al-pr` | Pull Request reviewen |
+| Prompt                | Wann nutzen                                           |
+| --------------------- | ----------------------------------------------------- |
+| `analyze-work-item`   | Work Item verstehen, ohne sofort umzusetzen           |
+| `plan-al-change`      | technischen Plan für eine Anforderung erstellen       |
+| `review-al-pr`        | Pull Request reviewen                                 |
 | `explain-build-error` | Compilerfehler erklären und Lösungsvorschlag erhalten |
 
 ### GSD-Workflow-Befehle
 
 Das Framework integriert das GSD-Workflow-System. Befehle beginnen mit `gsd-`:
 
-| Befehl | Zweck |
-|--------|-------|
-| `gsd-progress` | aktuellen Stand prüfen, nächsten Schritt vorschlagen |
-| `gsd-plan-phase` | Phase planen |
-| `gsd-execute-phase` | Phase ausführen |
-| `gsd-code-review` | Code reviewen |
-| `gsd-debug` | systematisches Debugging |
+| Befehl              | Zweck                                                |
+| ------------------- | ---------------------------------------------------- |
+| `gsd-progress`      | aktuellen Stand prüfen, nächsten Schritt vorschlagen |
+| `gsd-plan-phase`    | Phase planen                                         |
+| `gsd-execute-phase` | Phase ausführen                                      |
+| `gsd-code-review`   | Code reviewen                                        |
+| `gsd-debug`         | systematisches Debugging                             |
 
 ---
 
 ## Weiterführende Dokumente
 
-| Dokument | Inhalt |
-|----------|--------|
-| [AGENTS.md](AGENTS.md) | Vollständiger Projektkontext für alle Agents |
+| Dokument                                           | Inhalt                                        |
+| -------------------------------------------------- | --------------------------------------------- |
+| [AGENTS.md](AGENTS.md)                             | Vollständiger Projektkontext für alle Agents  |
 | [docs/model-switching.md](docs/model-switching.md) | Modell-Zuordnung, Kosten, technische Hinweise |
-| `.github/policies/agent-policy.md` | Verbindliche Sicherheits- und Ablaufregeln |
-| `.planning/ROADMAP.md` | Phasen und Anforderungen |
-| `.planning/STATE.md` | Aktueller Projektstatus |
-
+| `.github/policies/agent-policy.md`                 | Verbindliche Sicherheits- und Ablaufregeln    |
+| `.planning/ROADMAP.md`                             | Phasen und Anforderungen                      |
+| `.planning/STATE.md`                               | Aktueller Projektstatus                       |
