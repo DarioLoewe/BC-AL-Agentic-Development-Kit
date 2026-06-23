@@ -1,17 +1,3 @@
-# GSD planning docs (local only)
-.planning/*
-!.planning/codebase/
-
-# GSD Framework-Dateien (installiert von gsd-core, nicht committen)
-.github/gsd-core/
-.github/gsd-file-manifest.json
-.github/gsd-install-state.json
-.github/gsd-migration-journal/
-.github/.gsd-profile
-.github/hooks/
-.github/scripts/
-.github/skills/gsd-*/
-.github/agents/gsd-*.agent.md
 
 # VS Code / Electron debug output
 debug.log
