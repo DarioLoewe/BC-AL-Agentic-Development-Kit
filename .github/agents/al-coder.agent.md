@@ -7,8 +7,8 @@ description: >
   erstellt Übersetzungseinträge. Ersetzt al-implementer und al-build-tester ab Phase 2.
 tools: ["read", "search", "edit", "terminal"]
 agents:
-  - al-code-research    # Phase 4 — Signatur-Verifikation vor Code-Schreiben
-  - al-websearch        # Phase 4 — API-Doku wenn Diagnostics unbekannte API meldet
+  - al-code-research # Phase 4 — Signatur-Verifikation vor Code-Schreiben
+  - al-websearch # Phase 4 — API-Doku wenn Diagnostics unbekannte API meldet
 skills:
   - al-object-analysis
   - al-build-validation
@@ -56,15 +56,18 @@ AL-Code um. Kein eigenes fachliches Design — folge dem Contract präzise.
 Rufe Helper-Agents auf bei konkreter Wissenslücke — nie als Standard-Schritt.
 
 **`al-code-research` aufrufen VOR dem Code-Schreiben wenn:**
+
 - Eine Prozedur eine BC-Codeunit aufruft und die Signatur nicht aus Schritt 1 bekannt ist
 - `al_getdiagnostics` meldet `procedure ... not found` oder Typ-Fehler
 - `al_getdiagnostics` meldet falsche Parameter-Anzahl
 
 **`al-websearch` aufrufen wenn:**
+
 - `al_getdiagnostics` meldet BC-API-Fehler der nicht aus Symbolen erklärbar ist
 - Ein Contract-Objekt hat kein Symbol-Äquivalent in `.alpackages/`
 
 **BCQuality Knowledge konsultieren VOR dem Code-Schreiben bei:**
+
 - Performance-relevantem Code (Queries, Loops, SetLoadFields, Filters)
 - Upgrade-kritischen Änderungen (ObsoleteState, Interface, Events)
 - Error-Handling (TryFunctions, Error-Propagation)
@@ -131,6 +134,7 @@ Nach Schleife 3 mit verbleibenden Fehlern:
 
 Verwende exakt das Template aus `.github/instructions/ergebnis-contract.instructions.md`
 (Template: al-coder). Pflichtfelder:
+
 - `Build-Ergebnis` mit Status (✓/✗/🚨 BLOCKER), Fix-Schleifen-Zähler, Diagnostics-Zusammenfassung
 - `Implementierte Objekte` als Tabelle (Objekt, Typ, Aktion, Datei)
 - `Übersetzungseinträge`
@@ -142,25 +146,31 @@ Verwende exakt das Template aus `.github/instructions/ergebnis-contract.instruct
 **Plan Contract Version:** {plan_contract_version aus Contract}
 
 ### Implementierte Objekte
-| Objekt | Typ | Aktion | Datei |
-|--------|-----|--------|-------|
-| {Name} | {tableextension|page|codeunit|...} | erstellt|erweitert | {Pfad} |
+
+| Objekt | Typ             | Aktion | Datei    |
+| ------ | --------------- | ------ | -------- | ---- | -------- | --------- | ------ |
+| {Name} | {tableextension | page   | codeunit | ...} | erstellt | erweitert | {Pfad} |
 
 ### Build-Ergebnis
+
 - Status: ✓ Erfolgreich | ✗ Fehler | 🚨 BLOCKER
 - Fix-Schleifen: {0|1|2|3}
 - Diagnostics: {Anzahl Warnungen / Fehler oder "Keine"}
 
 ### Übersetzungseinträge
+
 - {de-DE Einträge oder "Keine neuen"}
 
 ### Geänderte Dateien
+
 - {Vollständiger Pfad 1}
 
 ### Offene Punkte
+
 - {oder "Keine"}
 
 ### Interpretation für Main-Agent
+
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-validator — prüft AC-Abdeckung
 - Offene Fragen: {oder "Keine"}

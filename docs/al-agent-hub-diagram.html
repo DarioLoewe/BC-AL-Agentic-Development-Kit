@@ -1,125 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <style>
-    body { margin: 0; padding: 32px; background: #1e1e2e; font-family: 'Segoe UI', sans-serif; }
-    h2 { color: #cdd6f4; font-size: 18px; margin-bottom: 20px; text-align: center; letter-spacing: 1px; }
-    .mermaid { display: flex; justify-content: center; }
-  </style>
-</head>
-<body>
-  <h2>BC AL Agent Hub — Funktionsübersicht</h2>
-  <div class="mermaid">
-graph TD
-    Dev["👤 Entwickler"]:::human
-
-    subgraph HUB["BC AL Agent Hub — VS Code Extension"]
-
-        subgraph ENTRY["Einstiegspunkte"]
-            CMD["⚡ Command\nal-agent-hub.addAgents"]
-            INST["📋 Chat Instructions\n5 Instruction-Dateien\nauto-geladen"]
-        end
-
-        subgraph ORCHESTRATOR["Orchestrator (Human-in-the-Loop)"]
-            MAIN["🧠 main-agent\nClaude Opus 4\nEinziger direkter\nGesprächspartner"]
-        end
-
-        subgraph SPECIALISTS["Spezialisten-Agents"]
-            direction TB
-            READER["📥 al-devops-reader\nADO / GitHub Issues lesen\n(read-only)"]
-            ANALYST["🔍 al-codebase-analyst\nAL-Objekte und Events finden"]
-            ARCH["🏗️ al-architect\nClaude Opus 4\nJSON Plan Contract erstellen"]
-            CODER["⚙️ al-coder\nCode schreiben\nBuild + Objekt-IDs\nÜbersetzungen"]
-            VALID["✅ al-validator\nClaude Opus 4\n5-Layer AC-Prüfung\nmax. 2 Korrekturschleifen"]
-            REVIEW["🔎 al-reviewer\nCode-Review\nBC-Konventionen"]
-            TESTER["🧪 al-tester\nGIVEN/WHEN/THEN\nnur auf explizite Anforderung"]
-            DOCS["📄 al-documenter\nPR-Beschreibung\nRelease Notes"]
-        end
-
-        subgraph LEAFNODES["Hilfs-Agents (Leaf-Nodes)"]
-            direction LR
-            CODESEARCH["🔬 al-code-research\nAL-Symbole und Signaturen\nin .alpackages/"]
-            WEBSEARCH["🌐 al-websearch\nMS Learn / Web\nAL-API-Doku"]
-        end
-
-        subgraph SKILLS["Skills"]
-            direction LR
-            S1["🔧 al-build-validation"]
-            S2["📝 al-code-review"]
-            S3["🎫 al-devops-workitem"]
-            S4["📦 al-object-analysis"]
-            S5["🧪 al-test-design"]
-        end
-
-        subgraph INSTRUCTIONS["Chat Instructions"]
-            direction LR
-            I1["AL Coding Standards"]
-            I2["AL Testing"]
-            I3["AL Review"]
-            I4["Azure DevOps"]
-            I5["Ergebnis Contract"]
-        end
-    end
-
-    subgraph OUTPUT["Ergebnisse"]
-        PR["📬 Draft Pull Request"]
-        WIC["💬 Work Item Kommentar"]
-        BUILD["✔️ Build / Diagnostics"]
-        TESTF["🧪 Test-Codeunit"]
-        DOCD["📄 Dokumentation"]
-    end
-
-    Dev -- "spricht nur mit" --> MAIN
-    CMD --> MAIN
-    INST -.-> MAIN
-
-    MAIN --> READER
-    MAIN --> ANALYST
-    MAIN --> ARCH
-    ARCH --> CODER
-    CODER --> VALID
-    VALID -- "Lücken → Korrekturschleife" --> CODER
-    VALID --> REVIEW
-    REVIEW --> TESTER
-    REVIEW --> DOCS
-
-    ARCH -.-> CODESEARCH
-    ARCH -.-> WEBSEARCH
-    CODER -.-> CODESEARCH
-    CODER -.-> WEBSEARCH
-
-    CODER -.-> S1
-    REVIEW -.-> S2
-    READER -.-> S3
-    ANALYST -.-> S4
-    TESTER -.-> S5
-
-    DOCS --> PR
-    MAIN --> WIC
-    CODER --> BUILD
-    TESTER --> TESTF
-    DOCS --> DOCD
-
-    classDef human fill:#4A90D9,stroke:#2E6DA4,color:#fff
-    classDef orchestrator fill:#7B2FBE,stroke:#5A1F8C,color:#fff
-    classDef specialist fill:#2E7D32,stroke:#1B5E20,color:#fff
-    classDef leaf fill:#F57C00,stroke:#E65100,color:#fff
-    classDef skill fill:#00695C,stroke:#004D40,color:#fff
-    classDef instruction fill:#546E7A,stroke:#37474F,color:#fff
-    classDef output fill:#C62828,stroke:#B71C1C,color:#fff
-
-    class Dev human
-    class MAIN orchestrator
-    class READER,ANALYST,ARCH,CODER,VALID,REVIEW,TESTER,DOCS specialist
-    class CODESEARCH,WEBSEARCH leaf
-    class S1,S2,S3,S4,S5 skill
-    class I1,I2,I3,I4,I5 instruction
-    class PR,WIC,BUILD,TESTF,DOCD output
-  </div>
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'dark', flowchart: { useMaxWidth: false } });
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      body {
+        margin: 0;
+        padding: 32px;
+        background: #1e1e2e;
+        font-family: "Segoe UI", sans-serif;
+      }
+      h2 {
+        color: #cdd6f4;
+        font-size: 18px;
+        margin-bottom: 20px;
+        text-align: center;
+        letter-spacing: 1px;
+      }
+      .mermaid {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>BC AL Agent Hub — Funktionsübersicht</h2>
+    <div class="mermaid">
+      graph TD Dev["👤 Entwickler"]:::human subgraph HUB["BC AL Agent Hub — VS
+      Code Extension"] subgraph ENTRY["Einstiegspunkte"] CMD["⚡
+      Command\nal-agent-hub.addAgents"] INST["📋 Chat Instructions\n5
+      Instruction-Dateien\nauto-geladen"] end subgraph
+      ORCHESTRATOR["Orchestrator (Human-in-the-Loop)"] MAIN["🧠
+      main-agent\nClaude Opus 4\nEinziger direkter\nGesprächspartner"] end
+      subgraph SPECIALISTS["Spezialisten-Agents"] direction TB READER["📥
+      al-devops-reader\nADO / GitHub Issues lesen\n(read-only)"] ANALYST["🔍
+      al-codebase-analyst\nAL-Objekte und Events finden"] ARCH["🏗️
+      al-architect\nClaude Opus 4\nJSON Plan Contract erstellen"] CODER["⚙️
+      al-coder\nCode schreiben\nBuild + Objekt-IDs\nÜbersetzungen"] VALID["✅
+      al-validator\nClaude Opus 4\n5-Layer AC-Prüfung\nmax. 2
+      Korrekturschleifen"] REVIEW["🔎
+      al-reviewer\nCode-Review\nBC-Konventionen"] TESTER["🧪
+      al-tester\nGIVEN/WHEN/THEN\nnur auf explizite Anforderung"] DOCS["📄
+      al-documenter\nPR-Beschreibung\nRelease Notes"] end subgraph
+      LEAFNODES["Hilfs-Agents (Leaf-Nodes)"] direction LR CODESEARCH["🔬
+      al-code-research\nAL-Symbole und Signaturen\nin .alpackages/"]
+      WEBSEARCH["🌐 al-websearch\nMS Learn / Web\nAL-API-Doku"] end subgraph
+      SKILLS["Skills"] direction LR S1["🔧 al-build-validation"] S2["📝
+      al-code-review"] S3["🎫 al-devops-workitem"] S4["📦 al-object-analysis"]
+      S5["🧪 al-test-design"] end subgraph INSTRUCTIONS["Chat Instructions"]
+      direction LR I1["AL Coding Standards"] I2["AL Testing"] I3["AL Review"]
+      I4["Azure DevOps"] I5["Ergebnis Contract"] end end subgraph
+      OUTPUT["Ergebnisse"] PR["📬 Draft Pull Request"] WIC["💬 Work Item
+      Kommentar"] BUILD["✔️ Build / Diagnostics"] TESTF["🧪 Test-Codeunit"]
+      DOCD["📄 Dokumentation"] end Dev -- "spricht nur mit" --> MAIN CMD -->
+      MAIN INST -.-> MAIN MAIN --> READER MAIN --> ANALYST MAIN --> ARCH ARCH
+      --> CODER CODER --> VALID VALID -- "Lücken → Korrekturschleife" --> CODER
+      VALID --> REVIEW REVIEW --> TESTER REVIEW --> DOCS ARCH -.-> CODESEARCH
+      ARCH -.-> WEBSEARCH CODER -.-> CODESEARCH CODER -.-> WEBSEARCH CODER -.->
+      S1 REVIEW -.-> S2 READER -.-> S3 ANALYST -.-> S4 TESTER -.-> S5 DOCS -->
+      PR MAIN --> WIC CODER --> BUILD TESTER --> TESTF DOCS --> DOCD classDef
+      human fill:#4A90D9,stroke:#2E6DA4,color:#fff classDef orchestrator
+      fill:#7B2FBE,stroke:#5A1F8C,color:#fff classDef specialist
+      fill:#2E7D32,stroke:#1B5E20,color:#fff classDef leaf
+      fill:#F57C00,stroke:#E65100,color:#fff classDef skill
+      fill:#00695C,stroke:#004D40,color:#fff classDef instruction
+      fill:#546E7A,stroke:#37474F,color:#fff classDef output
+      fill:#C62828,stroke:#B71C1C,color:#fff class Dev human class MAIN
+      orchestrator class READER,ANALYST,ARCH,CODER,VALID,REVIEW,TESTER,DOCS
+      specialist class CODESEARCH,WEBSEARCH leaf class S1,S2,S3,S4,S5 skill
+      class I1,I2,I3,I4,I5 instruction class PR,WIC,BUILD,TESTF,DOCD output
+    </div>
+    <script type="module">
+      import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs";
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "dark",
+        flowchart: { useMaxWidth: false }
+      });
+    </script>
+  </body>
 </html>

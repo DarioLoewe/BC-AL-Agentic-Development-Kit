@@ -12,12 +12,13 @@ CodeCop-Regel-Nummern, BC-spezifische Performance-Footguns.
 
 ## Verfügbarkeit
 
-| Modus | Pfad |
-|-------|------|
-| **Lokal (bevorzugt)** | `.bcquality/` — Git-Submodule, vollständig durchsuchbar |
-| **Remote-Fallback** | `https://raw.githubusercontent.com/microsoft/BCQuality/main/` |
+| Modus                 | Pfad                                                          |
+| --------------------- | ------------------------------------------------------------- |
+| **Lokal (bevorzugt)** | `.bcquality/` — Git-Submodule, vollständig durchsuchbar       |
+| **Remote-Fallback**   | `https://raw.githubusercontent.com/microsoft/BCQuality/main/` |
 
 Submodule einrichten (einmalig):
+
 ```
 git submodule add https://github.com/microsoft/BCQuality .bcquality
 git submodule update --init --recursive
@@ -32,16 +33,16 @@ Entry gibt einen Dispatch-Record zurück, der die zutreffenden Action-Skills ben
 
 ## Wichtigste Action-Skills
 
-| Skill | Lokaler Pfad | Wann |
-|-------|-------------|------|
-| AL Code Review (Super-Skill) | `.bcquality/microsoft/skills/review/al-code-review.md` | Standard-Review |
-| Performance | `.bcquality/microsoft/skills/review/al-performance-review.md` | Performance-Fokus |
-| Security | `.bcquality/microsoft/skills/review/al-security-review.md` | Security-Fokus |
-| Style | `.bcquality/microsoft/skills/review/al-style-review.md` | Code-Style |
-| Upgrade | `.bcquality/microsoft/skills/review/al-upgrade-review.md` | Upgrade-Sicherheit |
-| Error Handling | `.bcquality/microsoft/skills/review/al-error-handling-review.md` | Fehlerbehandlung |
-| UI | `.bcquality/microsoft/skills/review/al-ui-review.md` | Pages/UI |
-| Privacy | `.bcquality/microsoft/skills/review/al-privacy-review.md` | Datenschutz |
+| Skill                        | Lokaler Pfad                                                     | Wann               |
+| ---------------------------- | ---------------------------------------------------------------- | ------------------ |
+| AL Code Review (Super-Skill) | `.bcquality/microsoft/skills/review/al-code-review.md`           | Standard-Review    |
+| Performance                  | `.bcquality/microsoft/skills/review/al-performance-review.md`    | Performance-Fokus  |
+| Security                     | `.bcquality/microsoft/skills/review/al-security-review.md`       | Security-Fokus     |
+| Style                        | `.bcquality/microsoft/skills/review/al-style-review.md`          | Code-Style         |
+| Upgrade                      | `.bcquality/microsoft/skills/review/al-upgrade-review.md`        | Upgrade-Sicherheit |
+| Error Handling               | `.bcquality/microsoft/skills/review/al-error-handling-review.md` | Fehlerbehandlung   |
+| UI                           | `.bcquality/microsoft/skills/review/al-ui-review.md`             | Pages/UI           |
+| Privacy                      | `.bcquality/microsoft/skills/review/al-privacy-review.md`        | Datenschutz        |
 
 ## Knowledge-Domänen (für direkte Suche)
 
@@ -70,6 +71,7 @@ Entry gibt einen Dispatch-Record zurück, der die zutreffenden Action-Skills ben
 ## Finding-Format
 
 Jedes BCQuality-Finding muss referenzieren:
+
 ```
 - severity: error | warning | info
   message: "..."

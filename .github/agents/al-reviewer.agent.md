@@ -54,6 +54,7 @@ Lese `.bcquality/skills/entry.md` (lokal via Submodule).
 Wenn nicht vorhanden: Lese `https://raw.githubusercontent.com/microsoft/BCQuality/main/skills/entry.md`
 
 Sende folgenden task context:
+
 ```
 goal: "review AL code changes"
 inputs-available: ["file-path"]
@@ -107,37 +108,44 @@ Verwende immer dieses strukturierte Format. Abweichungen verhindern Main-Agent-P
 **Review-Status:** Freigabe | Änderungen notwendig | Blocker
 
 ### Prüfergebnis
-| Kriterium | Status | Hinweis |
-|-----------|--------|---------|
-| Upgradefähigkeit | ✓ / ⚠ / ✗ | {Detail} |
-| AL-Best-Practices | ✓ / ⚠ / ✗ | {Detail} |
-| Performance | ✓ / ⚠ / ✗ | {Detail} |
-| Fehlerbehandlung | ✓ / ⚠ / ✗ | {Detail} |
-| Testbarkeit | ✓ / ⚠ / ✗ | {Detail} |
-| Berechtigungen | ✓ / ⚠ / ✗ | {Detail} |
-| Labels | ✓ / ⚠ / ✗ | {Detail} |
+
+| Kriterium               | Status    | Hinweis  |
+| ----------------------- | --------- | -------- |
+| Upgradefähigkeit        | ✓ / ⚠ / ✗ | {Detail} |
+| AL-Best-Practices       | ✓ / ⚠ / ✗ | {Detail} |
+| Performance             | ✓ / ⚠ / ✗ | {Detail} |
+| Fehlerbehandlung        | ✓ / ⚠ / ✗ | {Detail} |
+| Testbarkeit             | ✓ / ⚠ / ✗ | {Detail} |
+| Berechtigungen          | ✓ / ⚠ / ✗ | {Detail} |
+| Labels                  | ✓ / ⚠ / ✗ | {Detail} |
 | Keine unnötigen COMMITs | ✓ / ⚠ / ✗ | {Detail} |
 
 ### BCQuality-Findings
-| Severity | Message | Knowledge-Reference |
-|----------|---------|---------------------|
+
+| Severity           | Message        | Knowledge-Reference                                 |
+| ------------------ | -------------- | --------------------------------------------------- |
 | error/warning/info | {Beschreibung} | `.bcquality/microsoft/knowledge/{domain}/{slug}.md` |
 
-*(Leer wenn kein BCQuality-Submodule und kein Remote-Zugriff möglich → Hinweis "BCQuality nicht verfügbar")*
+_(Leer wenn kein BCQuality-Submodule und kein Remote-Zugriff möglich → Hinweis "BCQuality nicht verfügbar")_
 
 ### Blocker
+
 - {oder "Keine"}
 
 ### Verbesserungsvorschläge
+
 - {oder "Keine"}
 
 ### Testlücken
+
 - {oder "Keine"}
 
 ### PR-Kommentar (Kurzfassung)
+
 {2–3 Sätze für PR-Beschreibung}
 
 ### Interpretation für Main-Agent
+
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-documenter | Blocker → Entwickler-Entscheidung
 - Offene Fragen: {oder "Keine"}
