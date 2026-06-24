@@ -8,6 +8,8 @@
 - After completing any `gsd-*` command (or any deliverable it triggers: feature, bug fix, tests, docs, etc.), ALWAYS: (1) offer the user the next step by prompting via `ask_user`; repeat this feedback loop until the user explicitly indicates they are done.
 <!-- /GSD Configuration -->
 
+> **Hinweis:** GSD ist eine optionale Workflow-Integration. Das BC AL Kit ist ohne GSD vollständig nutzbar. GSD-Befehle (`gsd-*`) werden nur verarbeitet, wenn der Entwickler sie explizit aufruft.
+
 ---
 
 # BC AL Agentic Development Kit — Projektkontext
@@ -69,4 +71,14 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 - **Aktueller Status:** `.planning/STATE.md`
 - **Projektkontext:** `.planning/PROJECT.md`
 - **Policy (verbindlich):** `.github/policies/agent-policy.md`
+
+## GSD-Framework-Agents
+
+Die folgenden Agents im Verzeichnis `.github/agents/` gehören zum separaten **GSD (Guided Software Development) Framework** und sind nicht Teil des BC AL Workflows:
+
+| Präfix | Beispiel-Agents | Aufruf über |
+|--------|----------------|------------|
+| `gsd-*` | `gsd-planner`, `gsd-executor`, `gsd-verifier`, `gsd-code-reviewer`, ... | `gsd-*`-Befehle |
+
+Diese Agents werden vom Main-Agent **nicht** direkt aufgerufen. Sie sind nur aktiv, wenn der Entwickler einen `gsd-*`-Befehl eingibt.
 

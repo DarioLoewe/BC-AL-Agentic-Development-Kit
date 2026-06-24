@@ -28,8 +28,6 @@ agents:
   - al-reviewer
   - al-documenter
   - al-tester           # NEU — optional, nur auf explizite Anforderung
-  - al-websearch        # Phase 4 — Hilfs-Agent, NUR von al-architect/al-coder aufgerufen
-  - al-code-research    # Phase 4 — Hilfs-Agent, NUR von al-architect/al-coder aufgerufen
 ---
 
 # Main-Agent — AL Development Partner
@@ -240,12 +238,14 @@ Empfehlung: Anforderungen präzisieren oder manuell reviewen bevor Fortfahren.
 ### Phase-2-Felder (nach al-architect)
 
 Nach CP-2 (al-architect genehmigt):
-- Schreibe `architect_contract_path` in SESSION.md (Pfad aus ERGEBNIS — Architect)
-- Setze `validator_loop_count: 0` (Ausgangswert vor al-validator)
+- Lese Feld `contract_path` aus al-architect-ERGEBNIS
+- Schreibe SESSION.md via `edit`-Tool: `architect_contract_path: {contract_path-Wert}`
+- Schreibe SESSION.md via `edit`-Tool: `validator_loop_count: 0` (Ausgangswert vor al-validator)
 
-Nach al-validator-Delegation:
-- Erhöhe `validator_loop_count` nach jeder Korrekturschleife
-- Wenn `validator_loop_count >= 2` und noch Lücken: al-validator eskaliert → BUILD-ESKALATION-Block
+Nach jeder al-validator-Delegation:
+- Lese al-validator-ERGEBNIS
+- Schreibe SESSION.md via `edit`-Tool: `validator_loop_count` um 1 erhöhen
+- Wenn `validator_loop_count >= 2` und noch AC-Lücken vorhanden: al-validator eskaliert → BUILD-ESKALATION-Block
 
 Tester-Guard:
 - Prüfe `tester_requested` in SESSION.md vor JEDER al-tester-Delegation
@@ -280,7 +280,7 @@ Hinweis: al-validator hat einen eigenen Schleifenzähler (`validator_loop_count`
 Wenn `build_fix_loop_count >= 3`:
 
 1. STOPPE sofort — kein weiterer Subagent-Aufruf
-2. Lies `.planning/al-workflow/BLOCKER-REPORT.md` (erstellt von `al-build-tester`)
+2. Lies `.planning/al-workflow/BLOCKER-REPORT.md` (erstellt von `al-coder`)
 3. Präsentiere dem Entwickler:
 
 ```
@@ -357,5 +357,5 @@ Typische Eingaben:
 
 - Work-Item-Nummer: `WI-1234` oder nur `1234`
 - GitHub Issue: `#42` oder `https://github.com/org/repo/issues/42`
-- Anforderungstext: Freitext (wird an `al-planner` weitergeleitet wenn eindeutig kein WI)
+- Anforderungstext: Freitext (wird an `al-architect` weitergeleitet wenn eindeutig kein WI)
 - Resume: `ja` auf Resume-Angebot beim Start

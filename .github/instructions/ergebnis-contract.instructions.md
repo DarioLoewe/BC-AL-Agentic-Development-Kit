@@ -217,3 +217,45 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 - Nächster Schritt: al-reviewer (falls noch nicht erfolgt)
 - Offene Fragen: {oder "Keine"}
 ```
+
+## 5. BLOCKER-REPORT Template
+
+`BLOCKER-REPORT.md` wird von `al-coder` (nach 3 Build-Fix-Schleifen) oder `al-validator` (nach 2 Korrekturschleifen ohne vollständige AC-Abdeckung) erstellt.
+
+Pfad: `.planning/al-workflow/BLOCKER-REPORT.md`
+
+```markdown
+## BLOCKER-REPORT — {al-coder | al-validator}
+
+**Ticket-ID:** {WI-ID}
+**Datum:** {YYYY-MM-DD}
+**Erstellt von:** {al-coder | al-validator}
+**Workflow-Schritt:** {Build-Fix-Schleife 3 | Validator-Korrekturschleife 2}
+
+### Vollständige Fehlermeldungen
+
+{Vollständiger al_getdiagnostics- oder Validator-Output der letzten Schleife — als Rohtext}
+
+### Protokoll der Korrekturversuche
+
+| Schleife | Geänderte Datei(en) | Verbleibender Fehler |
+|----------|---------------------|----------------------|
+| 1 | {Pfad} | {Fehler} |
+| 2 | {Pfad} | {Fehler} |
+| 3 | {Pfad oder —} | {Fehler} |
+
+### Empfohlene manuelle Eingriffspunkte
+
+- {Eingriffspunkt 1 oder "Keine konkrete Empfehlung möglich"}
+
+### Nächste Schritte für den Entwickler
+
+- [ ] Fehlermeldungen manuell analysieren
+- [ ] Abhängigkeiten prüfen (`.alpackages/`)
+- [ ] Nach Behebung: neuen Auftrag an al-coder stellen
+
+### Interpretation für Main-Agent
+- Confidence: 0.00
+- Nächster Schritt: Warte auf Entwickler-Freigabe — kein weiterer Subagent-Aufruf
+- Offene Fragen: Keine
+```

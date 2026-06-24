@@ -175,26 +175,4 @@ Verwende exakt das Template aus `.github/instructions/ergebnis-contract.instruct
 - `BC-Version`, `Symbol-Status`, `Aufwandsschätzung`, `contract_path`
 - `Confidence` (auch für CP-5-Trigger in main-agent)
 
-## ERGEBNIS — Architect
 
-**Ticket-ID:** {WI-ID}
-**BC-Version:** {runtime + application aus app.json}
-**Symbol-Status:** Geladen ✓ | Fehler: {Details}
-**Aufwandsschätzung:** {XS|S|M|L|XL} — {Begründung in 1 Satz}
-**contract_path:** `.planning/al-workflow/PLAN-CONTRACT-{ticket_id}.json`
-
-### JSON Plan Contract
-```json
-{ ... vollständiger Contract ... }
-```
-
-### Annahmen
-- {Annahme 1 oder "Keine"}
-
-### Risiken
-- {Risiko 1 oder "Keine"}
-
-### Interpretation für Main-Agent
-- Confidence: {0.00–1.00}
-- Nächster Schritt: al-coder — implementiert JSON Plan Contract
-- Offene Fragen: {oder "Keine"}

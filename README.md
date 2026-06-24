@@ -110,7 +110,9 @@ C:\Users\dloewe\
 
 ## Agents
 
-### AL-Entwicklung (aktiv)
+### AL-Entwicklung
+
+> Alle Agent-Dateien sind vorhanden. Aktuellen Implementierungsstand der Workflow-Phasen: siehe [`.planning/STATE.md`](.planning/STATE.md).
 
 | Agent                 | Rolle                                                                       | Modell            |
 | --------------------- | --------------------------------------------------------------------------- | ----------------- |
