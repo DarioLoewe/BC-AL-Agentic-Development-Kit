@@ -7,8 +7,8 @@ description: >
 tools: ["read", "search"]
 agents:
   - al-codebase-analyst
-  - al-websearch        # Phase 4 — On-demand MS-Learn-Suche bei Wissenslücken
-  - al-code-research    # Phase 4 — On-demand Symbol-Lookup vor Planschritten
+  - al-websearch # Phase 4 — On-demand MS-Learn-Suche bei Wissenslücken
+  - al-code-research # Phase 4 — On-demand Symbol-Lookup vor Planschritten
 skills:
   - al-object-analysis
   - al-devops-workitem
@@ -59,12 +59,14 @@ Rufe Helper-Agents via `runSubagent` auf wenn eine konkrete Wissenslücke identi
 Kein Helper wird als Standard-Schritt vor jeder Planung aufgerufen.
 
 **`al-websearch` aufrufen wenn:**
+
 - BC-API/Feature im Ticket ist nicht in `.alpackages/`-Symbolen auffindbar
 - BC-Version legt versions-spezifisches Verhalten nahe (runtime ≥ 13.0 + neues Feature)
 - Ticket referenziert explizit MS-Learn-Dokumentation
 - `al-object-analysis` Skill konnte beschriebenes BC-Standard-Verhalten nicht lokalisieren
 
 **`al-code-research` aufrufen wenn:**
+
 - Methoden-Signatur einer BC-Codeunit für einen Plan-Schritt benötigt wird
 - Event-Publisher-Parameter nicht aus den Symbolen lesbar sind
 - Unsicherheit besteht ob ein Objekt bereits im Kundenprojekt existiert
@@ -107,7 +109,7 @@ JSON-Schema (alle Felder MÜSSEN ausgefüllt sein — keine optionalen Felder we
     "hours_estimate": "{Bereich}",
     "rationale": "{1 Satz Begründung}"
   },
-  "confidence": 0.00,
+  "confidence": 0.0,
   "objects": [
     {
       "id": "contract_obj_1",
@@ -150,6 +152,7 @@ JSON-Schema (alle Felder MÜSSEN ausgefüllt sein — keine optionalen Felder we
 ```
 
 **Pflicht-Checkliste vor Contract-Speicherung:**
+
 - [ ] Jedes neue Tabellenfeld hat `caption`, `data_classification`, `tooltip`
 - [ ] Jede PageExtension-Control hat `application_area`
 - [ ] Jedes Objekt hat `proposed_id` innerhalb des `idRanges`-Bereichs
@@ -157,13 +160,13 @@ JSON-Schema (alle Felder MÜSSEN ausgefüllt sein — keine optionalen Felder we
 
 ## T-Shirt-Sizing-Rubrik (ARCH-03)
 
-| Größe | Stunden | Typischer AL-Task | Confidence-Anker |
-|-------|---------|-------------------|-----------------|
-| XS | < 1h | Caption/Label-Text ändern | 0.95 |
-| S | 1–4h | Feld zu TableExtension, PageControl hinzufügen | 0.85–0.90 |
-| M | 4–8h | FlowField/FlowFilter, neues Objekt ohne Buchungslogik | 0.75–0.80 |
-| L | 8–16h | Neue Tabelle, komplexe Codeunit, Schnittstelle | 0.40–0.70 |
-| XL | > 16h | Buchungslogik, Datenmigration, Berechtigungen komplex | 0.25–0.39 |
+| Größe | Stunden | Typischer AL-Task                                     | Confidence-Anker |
+| ----- | ------- | ----------------------------------------------------- | ---------------- |
+| XS    | < 1h    | Caption/Label-Text ändern                             | 0.95             |
+| S     | 1–4h    | Feld zu TableExtension, PageControl hinzufügen        | 0.85–0.90        |
+| M     | 4–8h    | FlowField/FlowFilter, neues Objekt ohne Buchungslogik | 0.75–0.80        |
+| L     | 8–16h   | Neue Tabelle, komplexe Codeunit, Schnittstelle        | 0.40–0.70        |
+| XL    | > 16h   | Buchungslogik, Datenmigration, Berechtigungen komplex | 0.25–0.39        |
 
 Wenn `confidence < 0.60`: Markiere Contract mit
 `"confidence_warning": "CP-5 — Confidence unter Schwellwert — Entwickler-Bestätigung vor al-coder erforderlich"`
@@ -172,7 +175,6 @@ Wenn `confidence < 0.60`: Markiere Contract mit
 
 Verwende exakt das Template aus `.github/instructions/ergebnis-contract.instructions.md`
 (Template: al-architect). Pflichtfelder im ERGEBNIS:
+
 - `BC-Version`, `Symbol-Status`, `Aufwandsschätzung`, `contract_path`
 - `Confidence` (auch für CP-5-Trigger in main-agent)
-
-

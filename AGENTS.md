@@ -1,4 +1,5 @@
 <!-- GSD Configuration — managed by gsd-core installer -->
+
 # Instructions for GSD
 
 - Use the gsd-core skill when the user asks for GSD or uses a `gsd-*` command.
@@ -36,26 +37,26 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 
 ### Aktuelle Agents (vorhanden)
 
-| Agent-Datei | Rolle | Status |
-|-------------|-------|--------|
-| `.github/agents/main-agent.agent.md` | Einziger Gesprächspartner, Orchestrator mit Checkpoints | Aktiv |
-| `.github/agents/al-devops-reader.agent.md` | ADO/GitHub read-only Ticket-Reader | Aktiv |
-| `.github/agents/al-architect.agent.md` | JSON Plan Contract, BC-Symbole, T-Shirt-Sizing, Objekt-Planung | Aktiv |
-| `.github/agents/al-codebase-analyst.agent.md` | AL-Objekte, Events, Abhängigkeiten im Repo finden | Aktiv |
-| `.github/agents/al-coder.agent.md` | Code + Build + Objekt-IDs + Übersetzungen | Aktiv |
-| `.github/agents/al-validator.agent.md` | 5-Layer AC-Prüfung, max. 2 Korrekturschleifen, BLOCKER-Report | Aktiv |
-| `.github/agents/al-reviewer.agent.md` | Code-Review nach BC-Konventionen | Aktiv |
-| `.github/agents/al-tester.agent.md` | AL-Tests (GIVEN/WHEN/THEN), nur auf explizite Anforderung | Aktiv |
-| `.github/agents/al-documenter.agent.md` | PR-Beschreibung, Release Notes, Testhinweise | Aktiv |
-| `.github/agents/al-websearch.agent.md` | MS Learn / Web-Suche — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv |
-| `.github/agents/al-code-research.agent.md` | AL-Symbole, Code-Usages — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv |
+| Agent-Datei                                   | Rolle                                                                      | Status |
+| --------------------------------------------- | -------------------------------------------------------------------------- | ------ |
+| `.github/agents/main-agent.agent.md`          | Einziger Gesprächspartner, Orchestrator mit Checkpoints                    | Aktiv  |
+| `.github/agents/al-devops-reader.agent.md`    | ADO/GitHub read-only Ticket-Reader                                         | Aktiv  |
+| `.github/agents/al-architect.agent.md`        | JSON Plan Contract, BC-Symbole, T-Shirt-Sizing, Objekt-Planung             | Aktiv  |
+| `.github/agents/al-codebase-analyst.agent.md` | AL-Objekte, Events, Abhängigkeiten im Repo finden                          | Aktiv  |
+| `.github/agents/al-coder.agent.md`            | Code + Build + Objekt-IDs + Übersetzungen                                  | Aktiv  |
+| `.github/agents/al-validator.agent.md`        | 5-Layer AC-Prüfung, max. 2 Korrekturschleifen, BLOCKER-Report              | Aktiv  |
+| `.github/agents/al-reviewer.agent.md`         | Code-Review nach BC-Konventionen                                           | Aktiv  |
+| `.github/agents/al-tester.agent.md`           | AL-Tests (GIVEN/WHEN/THEN), nur auf explizite Anforderung                  | Aktiv  |
+| `.github/agents/al-documenter.agent.md`       | PR-Beschreibung, Release Notes, Testhinweise                               | Aktiv  |
+| `.github/agents/al-websearch.agent.md`        | MS Learn / Web-Suche — Leaf-Node-Hilfsagent für al-architect + al-coder    | Aktiv  |
+| `.github/agents/al-code-research.agent.md`    | AL-Symbole, Code-Usages — Leaf-Node-Hilfsagent für al-architect + al-coder | Aktiv  |
 
 ### Geplante Agents (noch nicht implementiert)
 
-| Agent-Datei | Rolle | Phase |
-|-------------|-------|-------|
-| `al-docs-coordinator.agent.md` | Kunden-Doku-Routing nach Projektpfad | Phase 3 |
-| `al-docs-betzold/hermes/troeber.agent.md` | Kunden-spezifische Doku-Agents | Phase 3 |
+| Agent-Datei                               | Rolle                                | Phase   |
+| ----------------------------------------- | ------------------------------------ | ------- |
+| `al-docs-coordinator.agent.md`            | Kunden-Doku-Routing nach Projektpfad | Phase 3 |
+| `al-docs-betzold/hermes/troeber.agent.md` | Kunden-spezifische Doku-Agents       | Phase 3 |
 
 ## Skills und Prompts
 
@@ -76,9 +77,8 @@ nicht erlaubte Aktionen. Diese Policy hat Vorrang vor allen anderen Anweisungen.
 
 Die folgenden Agents im Verzeichnis `.github/agents/` gehören zum separaten **GSD (Guided Software Development) Framework** und sind nicht Teil des BC AL Workflows:
 
-| Präfix | Beispiel-Agents | Aufruf über |
-|--------|----------------|------------|
+| Präfix  | Beispiel-Agents                                                         | Aufruf über     |
+| ------- | ----------------------------------------------------------------------- | --------------- |
 | `gsd-*` | `gsd-planner`, `gsd-executor`, `gsd-verifier`, `gsd-code-reviewer`, ... | `gsd-*`-Befehle |
 
 Diese Agents werden vom Main-Agent **nicht** direkt aufgerufen. Sie sind nur aktiv, wenn der Entwickler einen `gsd-*`-Befehl eingibt.
-

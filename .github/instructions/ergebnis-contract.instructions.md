@@ -26,6 +26,7 @@ Der Header MUSS exakt sein:
 - **Agent-Name** entspricht genau dem `name:` im Frontmatter
 
 Korrekte Beispiele:
+
 ```
 ## ERGEBNIS — Architect
 ## ERGEBNIS — Coder
@@ -36,6 +37,7 @@ Korrekte Beispiele:
 ```
 
 Falsch (bricht Main-Agent-Parsing):
+
 - `##ERGEBNIS — Architect` (kein Leerzeichen nach `##`)
 - `## Ergebnis — Architect` (falsche Großschreibung)
 - `## ERGEBNIS - Architect` (Bindestrich statt Gedankenstrich)
@@ -48,6 +50,7 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 
 ```markdown
 ### Interpretation für Main-Agent
+
 - Confidence: {0.00–1.00}
 - Nächster Schritt: {Agent-Name} — {1 Satz was er tun wird}
 - Offene Fragen: {oder "Keine"}
@@ -57,7 +60,7 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 
 ### Template: al-architect
 
-```markdown
+````markdown
 ## ERGEBNIS — Architect
 
 **Ticket-ID:** {WI-ID}
@@ -67,21 +70,27 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 **contract_path:** `.planning/al-workflow/PLAN-CONTRACT-{ticket_id}.json`
 
 ### JSON Plan Contract
+
 ```json
 { ... vollständiger Contract ... }
 ```
+````
 
 ### Annahmen
+
 - {Annahme 1 oder "Keine"}
 
 ### Risiken
+
 - {Risiko 1 oder "Keine"}
 
 ### Interpretation für Main-Agent
+
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-coder — implementiert JSON Plan Contract
 - Offene Fragen: {oder "Keine"}
-```
+
+````
 
 ### Template: al-coder
 
@@ -114,7 +123,7 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-validator — prüft AC-Abdeckung
 - Offene Fragen: {oder "Keine"}
-```
+````
 
 ### Template: al-validator
 
@@ -125,23 +134,27 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 **Korrekturschleifen:** {0|1|2} von max. 2
 
 ### 5-Layer Prüfung
-| Layer | Prüfpunkt | Status | Detail |
-|-------|-----------|--------|--------|
-| 1 | AC→Objekt-Mapping | ✓ OK / ✗ Lücke | {Detail} |
-| 2 | AL-Konventionen | ✓ OK / ✗ Lücke | {Detail} |
-| 3 | Test-Coverage | ✓ OK / ⚠ Warnung / ✗ Lücke | {Detail} |
-| 4 | Diff-Verifikation | ✓ OK / ✗ Lücke | {Detail} |
-| 5 | Korrektur-Trigger | — Kein Trigger / ⚡ Trigger | {Detail} |
+
+| Layer | Prüfpunkt         | Status                      | Detail   |
+| ----- | ----------------- | --------------------------- | -------- |
+| 1     | AC→Objekt-Mapping | ✓ OK / ✗ Lücke              | {Detail} |
+| 2     | AL-Konventionen   | ✓ OK / ✗ Lücke              | {Detail} |
+| 3     | Test-Coverage     | ✓ OK / ⚠ Warnung / ✗ Lücke  | {Detail} |
+| 4     | Diff-Verifikation | ✓ OK / ✗ Lücke              | {Detail} |
+| 5     | Korrektur-Trigger | — Kein Trigger / ⚡ Trigger | {Detail} |
 
 ### AC-Abdeckung
-| AC | Objekt/Feld | Status |
-|----|------------|--------|
-| AC-1 | {Objekt.Feld} | ✓ |
+
+| AC   | Objekt/Feld   | Status |
+| ---- | ------------- | ------ |
+| AC-1 | {Objekt.Feld} | ✓      |
 
 ### Offene Lücken
+
 - {Lücke 1 oder "Keine"}
 
 ### Interpretation für Main-Agent
+
 - Gesamtstatus: Freigabe | Korrektur erforderlich | BLOCKER
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-reviewer | al-coder (Korrektur) | ESKALATION
@@ -157,30 +170,36 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 **Review-Status:** Freigabe | Änderungen notwendig | Blocker
 
 ### Prüfergebnis
-| Kriterium | Status | Hinweis |
-|-----------|--------|---------|
-| Upgradefähigkeit | ✓ / ⚠ / ✗ | {Detail} |
-| AL-Best-Practices | ✓ / ⚠ / ✗ | {Detail} |
-| Performance | ✓ / ⚠ / ✗ | {Detail} |
-| Fehlerbehandlung | ✓ / ⚠ / ✗ | {Detail} |
-| Testbarkeit | ✓ / ⚠ / ✗ | {Detail} |
-| Berechtigungen | ✓ / ⚠ / ✗ | {Detail} |
-| Labels | ✓ / ⚠ / ✗ | {Detail} |
+
+| Kriterium               | Status    | Hinweis  |
+| ----------------------- | --------- | -------- |
+| Upgradefähigkeit        | ✓ / ⚠ / ✗ | {Detail} |
+| AL-Best-Practices       | ✓ / ⚠ / ✗ | {Detail} |
+| Performance             | ✓ / ⚠ / ✗ | {Detail} |
+| Fehlerbehandlung        | ✓ / ⚠ / ✗ | {Detail} |
+| Testbarkeit             | ✓ / ⚠ / ✗ | {Detail} |
+| Berechtigungen          | ✓ / ⚠ / ✗ | {Detail} |
+| Labels                  | ✓ / ⚠ / ✗ | {Detail} |
 | Keine unnötigen COMMITs | ✓ / ⚠ / ✗ | {Detail} |
 
 ### Blocker
+
 - {oder "Keine"}
 
 ### Verbesserungsvorschläge
+
 - {oder "Keine"}
 
 ### Testlücken
+
 - {oder "Keine"}
 
 ### PR-Kommentar (Kurzfassung)
+
 {2–3 Sätze für PR-Beschreibung}
 
 ### Interpretation für Main-Agent
+
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-documenter | Blocker → Entwickler-Entscheidung
 - Offene Fragen: {oder "Keine"}
@@ -195,24 +214,30 @@ Jeder ERGEBNIS-Block MUSS mit diesem Footer enden:
 **Test-Modus:** AL-Test-Codeunit | Manuelle Testhinweise | Beides
 
 ### Erstellte Tests
-| Testmethode | Typ | Abgedecktes AC |
-|-------------|-----|----------------|
-| {DescriptiveName} | Automatisiert | AC-{N} |
+
+| Testmethode       | Typ           | Abgedecktes AC |
+| ----------------- | ------------- | -------------- |
+| {DescriptiveName} | Automatisiert | AC-{N}         |
 
 ### Test-Datei
+
 - Pfad: {src/Tests/...Test.al}
 
 ### GIVEN/WHEN/THEN Zusammenfassung
+
 {Für jeden Test ein Kurzblock:}
 **{Testmethode}**
+
 - [GIVEN] {Vorbedingung}
 - [WHEN] {Aktion}
 - [THEN] {Erwartetes Ergebnis}
 
 ### Nicht abdeckbare Testfälle
+
 - {und Begründung, oder "Keine"}
 
 ### Interpretation für Main-Agent
+
 - Confidence: {0.00–1.00}
 - Nächster Schritt: al-reviewer (falls noch nicht erfolgt)
 - Offene Fragen: {oder "Keine"}
@@ -239,10 +264,10 @@ Pfad: `.planning/al-workflow/BLOCKER-REPORT.md`
 ### Protokoll der Korrekturversuche
 
 | Schleife | Geänderte Datei(en) | Verbleibender Fehler |
-|----------|---------------------|----------------------|
-| 1 | {Pfad} | {Fehler} |
-| 2 | {Pfad} | {Fehler} |
-| 3 | {Pfad oder —} | {Fehler} |
+| -------- | ------------------- | -------------------- |
+| 1        | {Pfad}              | {Fehler}             |
+| 2        | {Pfad}              | {Fehler}             |
+| 3        | {Pfad oder —}       | {Fehler}             |
 
 ### Empfohlene manuelle Eingriffspunkte
 
@@ -255,6 +280,7 @@ Pfad: `.planning/al-workflow/BLOCKER-REPORT.md`
 - [ ] Nach Behebung: neuen Auftrag an al-coder stellen
 
 ### Interpretation für Main-Agent
+
 - Confidence: 0.00
 - Nächster Schritt: Warte auf Entwickler-Freigabe — kein weiterer Subagent-Aufruf
 - Offene Fragen: Keine
