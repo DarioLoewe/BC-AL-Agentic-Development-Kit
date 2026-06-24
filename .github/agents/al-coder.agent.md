@@ -64,6 +64,15 @@ Rufe Helper-Agents auf bei konkreter Wissenslücke — nie als Standard-Schritt.
 - `al_getdiagnostics` meldet BC-API-Fehler der nicht aus Symbolen erklärbar ist
 - Ein Contract-Objekt hat kein Symbol-Äquivalent in `.alpackages/`
 
+**BCQuality Knowledge konsultieren VOR dem Code-Schreiben bei:**
+- Performance-relevantem Code (Queries, Loops, SetLoadFields, Filters)
+- Upgrade-kritischen Änderungen (ObsoleteState, Interface, Events)
+- Error-Handling (TryFunctions, Error-Propagation)
+- Security (Input-Validierung, Berechtigungen)
+
+Dazu: Relevante Knowledge-Files in `.bcquality/microsoft/knowledge/{domain}/` lesen
+(bevorzugt `## Anti Pattern`-Abschnitt — enthält genau das, was vermieden werden muss).
+
 Helper-Output wird intern für Code-Korrektur genutzt — nie in ERGEBNIS-Block weitergegeben.
 
 ### Schritt 2 — Objekt-ID-Verifikation
